@@ -59,11 +59,18 @@ Register it under the organisation (Settings -> Developer settings -> GitHub
 Apps -> New GitHub App):
 
 - **Homepage URL**: `https://opensheaf.org/`.
-- **Callback URL**: `https://<service>/callback` (and, for local work,
-  `http://localhost:8787/callback`; several are allowed).
+- **Callback URLs**: `https://<service>/callback`, exactly, for every
+  address the service answers at (for instance
+  `https://opensheaf-gh-auth.<subdomain>.workers.dev/callback`, and
+  `https://auth.opensheaf.org/callback` with a custom domain); for local
+  work also `http://localhost:8787/callback`. Up to ten are allowed.
 - **Expire user authorization tokens**: on.
-- **Request user authorization (OAuth) during installation**: on, so that
-  installing the app also signs the author in.
+- **Request user authorization (OAuth) during installation**: off. When on,
+  GitHub sends the author to the callback after installing, outside a
+  sign-in started by the service, which then answers with an error.
+- **Enable Device Flow**: off.
+- **Setup URL** (optional): where GitHub sends the author after installing
+  the app, for instance back to the deposit page.
 - **Webhook**: off (untick *Active*).
 - **Repository permissions**: *Contents*: read and write. (*Metadata*: read
   is added by GitHub.) Add others only when a page needs them, for instance
