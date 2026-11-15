@@ -134,7 +134,7 @@ Keep tokens in memory, or in `sessionStorage` at most; not in
 ## Working on it
 
 - `src/worker.js`: the service. `client/gh-auth.js`: the browser side.
-- Tests: `node --test tests/` (Node 20 or later; GitHub is replaced by a
+- Tests: `node --test tests/*.test.mjs` (Node 20 or later; GitHub is replaced by a
   stub).
 - Local run: put the settings in `.dev.vars` (not committed):
 

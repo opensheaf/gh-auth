@@ -1,4 +1,4 @@
-// Tests of the Worker, run by Node's own test runner: node --test tests/
+// Tests of the Worker, run by Node's own test runner: node --test tests/*.test.mjs
 // GitHub is replaced by a stub of fetch.
 
 import { test, beforeEach } from "node:test";
