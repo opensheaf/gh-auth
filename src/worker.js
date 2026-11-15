@@ -99,6 +99,12 @@ async function login(url, env) {
 async function callback(request, url, env) {
   if (!configured(env)) return text("Service not configured\n", 500);
   const flow = readFlow(request);
+  // GitHub comes here after an installation of the app when the app asks
+  // for authorisation during installation, or has this address as its
+  // setup URL; no sign-in was started, so there is nothing to finish.
+  if (!flow && url.searchParams.has("installation_id"))
+    return text("The app is installed. Close this window and sign in " +
+                "from the page you were using.\n");
   if (!flow || !isAllowed(flow.origin, env))
     return text("The sign-in expired or was started elsewhere. " +
                 "Close this window and try again.\n", 400);

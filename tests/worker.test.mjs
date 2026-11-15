@@ -114,6 +114,13 @@ test("callback without the cookie does not call GitHub", async () => {
   assert.equal(calls.length, 0);
 });
 
+test("callback after an installation says so and does not call GitHub", async () => {
+  const r = await get("/callback?code=abc&installation_id=42&setup_action=install");
+  assert.equal(r.status, 200);
+  assert.match(await r.text(), /The app is installed/);
+  assert.equal(calls.length, 0);
+});
+
 test("callback with a wrong state does not call GitHub", async () => {
   const { cookie } = await startLogin();
   const r = await get(`/callback?code=abc&state=wrong`, { Cookie: cookie });
