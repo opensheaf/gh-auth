@@ -1,0 +1,21 @@
+# Cloudflare Worker settings. Deploy with `npx wrangler@4 deploy`.
+name = "opensheaf-gh-auth"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# A custom domain, once the zone is on Cloudflare:
+# routes = [{ pattern = "auth.opensheaf.org", custom_domain = true }]
+
+[vars]
+# The client ID of the GitHub App (public).
+GITHUB_CLIENT_ID = ""
+# Origins whose pages may receive tokens: exact origins, no paths, no
+# wildcards, separated by commas or spaces.
+ALLOWED_ORIGINS = "https://opensheaf.org"
+# For an OAuth App only: the scopes to ask for (for example "public_repo").
+# Leave unset for a GitHub App.
+# SCOPE = ""
+
+# The client secret is a secret, never written here:
+#   npx wrangler@4 secret put GITHUB_CLIENT_SECRET

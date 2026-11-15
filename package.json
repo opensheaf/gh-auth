@@ -1,0 +1,12 @@
+{
+  "name": "opensheaf-gh-auth",
+  "private": true,
+  "type": "module",
+  "description": "GitHub sign-in for OpenSheaf pages: a Cloudflare Worker that exchanges the code for a token",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "test": "node --test tests/",
+    "dev": "npx wrangler@4 dev",
+    "deploy": "npx wrangler@4 deploy"
+  }
+}
