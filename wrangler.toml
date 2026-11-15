@@ -9,7 +9,7 @@ workers_dev = true
 
 [vars]
 # The client ID of the GitHub App (public).
-GITHUB_CLIENT_ID = ""
+GITHUB_CLIENT_ID = "Iv23lijEGTaTvFTs5To6"
 # Origins whose pages may receive tokens: exact origins, no paths, no
 # wildcards, separated by commas or spaces.
 ALLOWED_ORIGINS = "https://opensheaf.org"
